@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>books</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+  <header class="bg-dark py-4 container">
+    <h2 class="text-center text-white"> Search Your Favourit Books</h2>
+    <div class="w-50 mx-auto d-flex m-5 ">
+        <input id="search-input" type="text" class="form-control border-2 border-light" placeholder="Write a book name" >
+        <button onclick="loadBookArchive()" type="button" class="ms-1 border-2 border-light btn btn-outline-light">search</button>
+    </div>
+       <!-- error div -->
+       <div class="text-danger m-2 text-center">
+        <h5 id="errors"></h5>
+      </div>
+  </header>
+  <section class="container bg-secondary h-100">
+
+      <!-- books items -->
+      <div id="get-books" class="row row-cols-1 row-cols-md-3 g-4 ">
+      </div>
+  </section>
+
+
+    <script src="js/main.js"></script>
+</body>
+</html>
