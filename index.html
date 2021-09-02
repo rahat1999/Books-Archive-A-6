@@ -5,42 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books-Archive</title>
+    <!-- bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- css -->
+    <style>
+      header{
+        box-shadow: 3px 5px 10px gray;
+        background: linear-gradient(rgba(29, 28, 29, 0.609),rgba(29, 28, 29, 0.9)),url(img/building-98.jpg);
+        background-position: center center ;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .books-bg{
+        background-color:#5f5d5d38;
+      }
+    </style>
 </head>
 <body>
-  <header class="bg-dark shadow py-4 rounded-1 mt-2 container">
+  <header class=" py-5 rounded-1 mt-2 container">
         <!-- title -->
-      <h2 class="text-center text-white fw-bolder"> Search Your Favourit Books</h2>
-        <!-- input & search field -->
-      <div class="w-75 mx-auto d-flex m-2 ">
-          <input id="search-input" type="text" class="form-control border-2 border-light" placeholder="Write a book name" >
-          <button onclick="loadBookArchive()" type="button" class="ms-1 border-2 border-light btn btn-outline-light">search</button>
+      <h2 class="text-center text-warning fw-bolder">⭐ Fiend Here Your Favourit Books⭐</h2>
+        <!-- input field & search button -->
+      <div class="w-75 mx-auto d-flex m-4 ">
+          <input id="input-field" type="text" class="form-control border-2 border-light" placeholder="Search Your Favourit Books.." >
+          <button onclick="loadBookArchive()" type="button" class="ms-1 border-2 border-light btn btn-outline-light fw-bolder">Search</button>
       </div>
-      <!-- total-books -->
+      <!-- total-result -->
       <div class="text-white text-center fw-bolder">
-          <h4 id="total"></h4>
-      </div>
-       <!-- error div -->
-       <div class="text-danger m-2 text-center">
-          <h4 id="errors"></h4>
+          <h2 id="total"></h2>
       </div>
   </header>
 
-    <main class="">
-      <section class="container">
+    <main class="container mt-4">
+      <section>
+         <!-- error div -->
+       <div class="text-danger fw-bolder m-2 text-center">
+        <h2 id="errors"></h2>
+      </div>
         <!-- spinner -->
           <div id="spinner" class=" spinner-border text-danger p-3" style="margin-left: 50%;" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
       </section>
-
-    <section class="container bg-secondary h-100">
-        <!-- books items //search reasult-->
-        <div id="get-books" class="row row-cols-1 row-cols-md-3 g-4 ">
-        </div>
-    </section>
-
+      <section class="books-bg px-2">
+        <!--  found books-->
+        <div id="get-books" class="row row-cols-1 row-cols-md-3 g-4"></div>
+      </section>
 </main>
+
 
     <script src="js/main.js"></script>
 </body>
