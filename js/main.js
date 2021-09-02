@@ -1,22 +1,22 @@
 /*-----global-------*/
-const getBooks = document.getElementById('get-books');
+const booksContainer = document.getElementById('books-container');
 const inputField = document.getElementById('input-field');
 document.getElementById('spinner').style.display='none';
 
 const loadBookArchive = () => {
     const searchByName = inputField.value;
-        // error masssage;
+            /*---- error masssage------ */
         if(searchByName ===''){
-            document.getElementById('errors').innerText='Search Field Empty';
+            document.getElementById('errors').innerText='⚠️Search Field Empty..';
             document.getElementById('total').innerText='';
-            getBooks.innerHTML=''
+            booksContainer.textContent='';
         }
         else{
             /*---show spinner---*/
              document.getElementById('spinner').style.display='block';
             /*  'clear error msg' */
             document.getElementById('errors').innerText='';
-            
+    
             const url = `https://openlibrary.org/search.json?q=${searchByName}`
             fetch(url)
                 .then(res => res.json())
@@ -24,14 +24,14 @@ const loadBookArchive = () => {
                 /*----clear dom---*/
                 document.getElementById('total').innerText=''
                 inputField.value=""
-                document.getElementById('get-books').innerHTML='';
+                document.getElementById('books-container').innerHTML='';
         }
     }
 
         const displayBookArchive = data => {
             /*---- total result----*/
             document.getElementById('total').innerText=`Total Result Found: ${data.numFound}`
-            const books =data.docs
+            const books =data.docs;
          /* ------hide spinner------- */
          document.getElementById('spinner').style.display='none';
         if(books.length===0){
@@ -44,7 +44,7 @@ const loadBookArchive = () => {
                 div.classList.add('col')
                 div.innerHTML =`
                 <div class="card h-100 p-2 rounded-2">
-                        <img src="https://covers.openlibrary.org/b/id/${book.cover_i?book.cover_i:554106}-M.jpg" class="card-img-top" alt="...">
+                        <img style="height:200px" src="https://covers.openlibrary.org/b/id/${book.cover_i?book.cover_i:554106}-M.jpg" class="card-img-top" alt="...">
 
                     <div class="card-body bg-secondary">
                         <li class="card-text text-light">Book Name : <b class="text-warning">${book?.title?book.title:'N/a'}</li>
@@ -53,7 +53,7 @@ const loadBookArchive = () => {
                     </div>
                 </div>`
                 
-                getBooks.appendChild(div);
+                booksContainer.appendChild(div);
         
             });
         }

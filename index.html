@@ -17,43 +17,42 @@
         background-size: cover;
       }
       .books-bg{
-        background-color:#5f5d5d38;
+        background-color:#5f5d5d91;
       }
     </style>
 </head>
 <body>
-  <header class=" py-5 rounded-1 mt-2 container">
-        <!-- title -->
-      <h2 class="text-center text-warning fw-bolder">⭐ Fiend Here Your Favourit Books⭐</h2>
-        <!-- input field & search button -->
-      <div class="w-75 mx-auto d-flex m-4 ">
-          <input id="input-field" type="text" class="form-control border-2 border-light" placeholder="Search Your Favourit Books.." >
-          <button onclick="loadBookArchive()" type="button" class="ms-1 border-2 border-light btn btn-outline-light fw-bolder">Search</button>
-      </div>
-      <!-- total-result -->
-      <div class="text-white text-center fw-bolder">
-          <h2 id="total"></h2>
-      </div>
-  </header>
-
+    <header class=" py-5 rounded-1 mt-2 container">
+          <!-- title -->
+        <h2 class="text-center text-warning fw-bolder">⭐ Fiend Here Your Favourit Books⭐</h2>
+          <!-- input field & search button -->
+        <div class="w-75 mx-auto d-flex m-4 ">
+            <input id="input-field" type="text" class="form-control border-2 border-light" placeholder="Search Your Favourit Books.." >
+            <button onclick="loadBookArchive()" type="button" class="ms-1 border-2 border-light btn btn-outline-light fw-bolder">Search</button>
+        </div>
+        <!-- total-result -->
+        <div class="text-white text-center fw-bolder">
+            <h2 id="total"></h2>
+        </div>
+          <!-- error div -->
+          <div class="text-white bg-danger fw-bolder m-2 text-center">
+            <h2 id="errors"></h2>
+          </div>
+    </header>
     <main class="container mt-4">
+      <!-- spinner -->
       <section>
-         <!-- error div -->
-       <div class="text-danger fw-bolder m-2 text-center">
-        <h2 id="errors"></h2>
-      </div>
-        <!-- spinner -->
           <div id="spinner" class=" spinner-border text-danger p-3" style="margin-left: 50%;" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
       </section>
+      <!-- books container-->
       <section class="books-bg px-2">
-        <!--  found books-->
-        <div id="get-books" class="row row-cols-1 row-cols-md-3 g-4"></div>
+        <div id="books-container" class="row row-cols-1 row-cols-md-3 g-4"></div>
       </section>
 </main>
 
-
+            <!--main-js -->
     <script src="js/main.js"></script>
 </body>
 </html>
