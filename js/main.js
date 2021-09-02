@@ -1,6 +1,6 @@
 const getBooks = document.getElementById('get-books');
 const searchInput = document.getElementById('search-input');
-
+document.getElementById('spinner').style.display='none';
 const loadBookArchive = () => {
     const searchByName = searchInput.value;
         // error masssage;
@@ -8,19 +8,24 @@ const loadBookArchive = () => {
             document.getElementById('errors').innerText='Search Field Empty';
         }
         else{
-            document.getElementById('errors').innerText=''
+            /*---show spinner---*/
+             document.getElementById('spinner').style.display='block';
+            /*  'clear error msg' */
+            document.getElementById('errors').innerText='';
+            
             const url = `http://openlibrary.org/search.json?q=${searchByName}`
             fetch(url)
                 .then(res => res.json())
                 .then(data =>displayBookArchive(data.docs))
                 /*----clear---*/
                 searchInput.value=""
-                document.getElementById('get-books').innerHTML=''
+                document.getElementById('get-books').innerHTML='';
         }
     }
-    
 
-const displayBookArchive = books => {
+        const displayBookArchive = books => {
+         /* hide spinner */
+         document.getElementById('spinner').style.display='none';
        /*----each book total----*/
         document.getElementById('total').innerText=`Total: ${books.length} Books`
         if(books.length===0){
@@ -28,8 +33,8 @@ const displayBookArchive = books => {
         }
         else{
             books.forEach(book => {
-                document.getElementById('errors').innerText=''
-                const div = document.createElement('div')
+                document.getElementById('errors').innerText='';
+                const div = document.createElement('div');
                 div.classList.add('col')
                 div.innerHTML = `
                     <div class="card h-100">
@@ -42,7 +47,7 @@ const displayBookArchive = books => {
                     </div>
                 </div>
                     `
-                getBooks.appendChild(div)
+                getBooks.appendChild(div);
         
             });
         }
