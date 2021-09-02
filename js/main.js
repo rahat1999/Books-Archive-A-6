@@ -17,7 +17,7 @@ const loadBookArchive = () => {
             /*  'clear error msg' */
             document.getElementById('errors').innerText='';
             
-            const url = `http://openlibrary.org/search.json?q=${searchByName}`
+            const url = `https://openlibrary.org/search.json?q=${searchByName}`
             fetch(url)
                 .then(res => res.json())
                 .then(data =>displayBookArchive(data))  
